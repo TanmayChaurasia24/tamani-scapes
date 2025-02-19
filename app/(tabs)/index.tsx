@@ -1,33 +1,71 @@
-// cover image
-// https://ideogram.ai/assets/progressive-image/balanced/response/G5wFGOj5TDuSgR82IwlHhA
-
 import { ImageCard } from "@/components/ImageCard";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { typeUseWallpaper, usewallpapers } from "@/hooks/usewallpapers";
-import { Link } from "expo-router";
-import { Image, Text, View } from "react-native";
+import { FlatList, Image, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function explore() {
+export default function Explore() {
   const wallpapers = usewallpapers();
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.safeArea}>
       <ParallaxScrollView
         headerBackgroundColor={{ dark: "black", light: "white" }}
         headerImage={
           <Image
             style={{ flex: 1 }}
             source={{
-              uri: "https://ideogram.ai/assets/progressive-image/balanced/response/rXUv9c6gTgWqdctcA_yyog",
+              uri: "https://ideogram.ai/assets/progressive-image/balanced/response/EcMvv68-Sh6oTu54Rh3S-Q",
             }}
           />
         }
       >
-        {wallpapers.map((w: typeUseWallpaper) => (
-          <ImageCard wallpaper={w} />
-        ))}
+        <View style={styles.container}>
+          {/* Left Column */}
+          <View style={styles.innerContainer}>
+            <FlatList
+              data={wallpapers.filter((_, index) => index % 2 === 0)}
+              renderItem={({ item }) => (
+                <View style={styles.imageContainer}>
+                  <ImageCard wallpaper={item} />
+                </View>
+              )}
+              keyExtractor={(item, index) => item.name || index.toString()} 
+            />
+          </View>
+
+          {/* Right Column */}
+          <View style={styles.innerContainer}>
+          <FlatList
+              data={wallpapers.filter((_, index) => index % 2 === 1)}
+              renderItem={({ item }) => (
+                <View style={styles.imageContainer}>
+                  <ImageCard wallpaper={item} />
+                </View>
+              )}
+              keyExtractor={(item, index) => item.name || index.toString()} 
+            />
+          </View>
+        </View>
       </ParallaxScrollView>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
+  container: {
+    flexDirection: "row",
+    flex: 1,
+  },
+  innerContainer: {
+    flex: 0.5,
+    padding: 10,
+    marginBottom: 10,
+  },
+  imageContainer: {
+    paddingVertical: 10
+  },
+});

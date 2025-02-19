@@ -11,7 +11,7 @@ export function usewallpapers(): typeUseWallpaper[] {
     },
     {
       name: "image 2",
-      url: " https://ideogram.ai/assets/progressive-image/balanced/response/zvf-giD5QKis955KA__q6g",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/z7_H3IZ7TuiYtwA08vT7fw",
     },
     {
       name: "image 3",
@@ -20,6 +20,34 @@ export function usewallpapers(): typeUseWallpaper[] {
     {
       name: "image 4",
       url: "https://ideogram.ai/assets/progressive-image/balanced/response/0AoDd-zsT-yCp6clFSBJeg",
+    },
+    {
+      name: "image 5",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/Oq96n85aSNS0npqfr9O51w",
+    },
+    {
+      name: "image 6",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/ArhA8xCARXug9W5LvB8KuQ",
+    },
+    {
+      name: "image 7",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/1ITMHeI-SN22q5w37lQ1TA",
+    },
+    {
+      name: "image 8",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/9t6b0p5CSEuSZqZjhxvuIQ",
+    },
+    {
+      name: "image 9",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/4OHXX9ZBRQ69GILn8Iqj3g",
+    },
+    {
+      name: "image 10",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/gTq2FVVmRDeZUkagSH0c7Q",
+    },
+    {
+      name: "image 11",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/OWwPHUmDTBCF_ZFiWymYjw",
     },
   ];
 }
