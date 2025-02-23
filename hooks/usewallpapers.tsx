@@ -49,5 +49,33 @@ export function usewallpapers(): typeUseWallpaper[] {
       name: "image 11",
       url: "https://ideogram.ai/assets/progressive-image/balanced/response/OWwPHUmDTBCF_ZFiWymYjw",
     },
+    {
+      name: "image 12",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/WiQF-YufQae2QWVevD7FuQ",
+    },
+    {
+      name: "image 13",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/CLXfRmhVTkSSubffQ-rEbA",
+    },
+    {
+      name: "image 14",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/hkodyZCAT2uYbR16RkTjOw",
+    },
+    {
+      name: "image 15",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/sYpqMrkMSH-Ao4f0nD00pQ",
+    },
+    {
+      name: "image 16",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/JsLhh4xNRlmGDnXaRK8ayA",
+    },
+    {
+      name: "image 17",
+      url: "https://ideogram.ai/assets/progressive-image/balanced/response/HEAhOOXdQcu8gR7RCJ17sw",
+    },
+    {
+      name: "image 18",
+      url: "https://images.unsplash.com/photo-1739826009158-edbd53ec9979?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyN3x8fGVufDB8fHx8fA%3D%3D",
+    },
   ];
 }

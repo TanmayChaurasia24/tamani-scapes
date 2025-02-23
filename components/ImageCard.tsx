@@ -1,15 +1,15 @@
 import { typeUseWallpaper } from "@/hooks/usewallpapers";
-import { Image, StyleSheet, useColorScheme, View } from "react-native";
+import { Image, Pressable, StyleSheet, useColorScheme, View } from "react-native";
 import { ThemedText } from "./ThemedText";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 
-export function ImageCard({ wallpaper }: { wallpaper: typeUseWallpaper }) {
+export function ImageCard({ wallpaper, onPress }: { wallpaper: typeUseWallpaper, onPress: () => void }) {
   const theme = useColorScheme() ?? "Light";
 
   return (
-    <>
-      <Image source={{ uri: wallpaper.url }} style={styles.image} />
+    <Pressable onPress={onPress}>
+      <Image source={{ uri: wallpaper.url }} style={styles.image}/>
       <View style={styles.labelcontainer}>
         <ThemedText style={styles.label}>{wallpaper.name}</ThemedText>
         <View style={styles.iconcontainer}>
@@ -20,7 +20,7 @@ export function ImageCard({ wallpaper }: { wallpaper: typeUseWallpaper }) {
           />
         </View>
       </View>
-    </>
+    </Pressable>
   );
 }
 

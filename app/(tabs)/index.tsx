@@ -1,12 +1,14 @@
+import { DownloadPicture } from "@/components/BottomSheet";
 import { ImageCard } from "@/components/ImageCard";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { typeUseWallpaper, usewallpapers } from "@/hooks/usewallpapers";
+import { useState } from "react";
 import { FlatList, Image, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Explore() {
   const wallpapers = usewallpapers();
-
+  const [selectedwallpapers, setselectedwallpapers] = useState<null | typeUseWallpaper>(null)
   return (
     <SafeAreaView style={styles.safeArea}>
       <ParallaxScrollView
@@ -27,7 +29,9 @@ export default function Explore() {
               data={wallpapers.filter((_, index) => index % 2 === 0)}
               renderItem={({ item }) => (
                 <View style={styles.imageContainer}>
-                  <ImageCard wallpaper={item} />
+                  <ImageCard wallpaper={item} onPress={() => {
+                    setselectedwallpapers(item)
+                  }}/>
                 </View>
               )}
               keyExtractor={(item, index) => item.name || index.toString()} 
@@ -40,7 +44,9 @@ export default function Explore() {
               data={wallpapers.filter((_, index) => index % 2 === 1)}
               renderItem={({ item }) => (
                 <View style={styles.imageContainer}>
-                  <ImageCard wallpaper={item} />
+                  <ImageCard wallpaper={item} onPress={() => {
+                    setselectedwallpapers(item)
+                  }}/>
                 </View>
               )}
               keyExtractor={(item, index) => item.name || index.toString()} 
@@ -48,6 +54,7 @@ export default function Explore() {
           </View>
         </View>
       </ParallaxScrollView>
+      {selectedwallpapers && <DownloadPicture wallpaper={selectedwallpapers} onClose={() => setselectedwallpapers(null)}/>}
     </SafeAreaView>
   );
 }
