@@ -4,7 +4,7 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { SplitViewWallpapers } from "@/components/SplitViewWallpapers";
 import { typeUseWallpaper, usewallpapers } from "@/hooks/usewallpapers";
 import { useState } from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { FlatList, Image, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Explore() {
@@ -30,7 +30,6 @@ export default function Explore() {
           setselectedwallpapers={setselectedwallpapers}
         />
       </ParallaxScrollView>
-
       {selectedwallpapers && (
         <DownloadPicture
           wallpaper={selectedwallpapers}
@@ -44,5 +43,10 @@ export default function Explore() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+  },
+  content: {
+    backgroundColor: "white", // Ensures the content area is white
+    flex: 1,
+    padding: 10,
   },
 });
