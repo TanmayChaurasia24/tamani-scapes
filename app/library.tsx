@@ -5,7 +5,7 @@ import {
   Text,
   View,
 } from "react-native";
-import { typeUseWallpaper, usewallpapers } from "@/hooks/usewallpapers";
+import { typeUseWallpaper, uselibraryWallpaper } from "@/hooks/usewallpapers";
 import { SplitViewWallpapers } from "@/components/SplitViewWallpapers";
 import { DownloadPicture } from "@/components/BottomSheet";
 import { useState } from "react";
@@ -15,7 +15,7 @@ export default function Library({
 }: {
   setselectedwallpapers: (wallpaper: typeUseWallpaper | null) => void;
 }) {
-  const wallpapers = usewallpapers();
+  const wallpapers = uselibraryWallpaper();
   const [selectedWallpaper, setSelectedWallpaper] =
     useState<null | typeUseWallpaper>(null);
 

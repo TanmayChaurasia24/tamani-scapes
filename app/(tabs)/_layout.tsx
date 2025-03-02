@@ -1,11 +1,3 @@
-// sample wallpaers link
-// https://ideogram.ai/assets/progressive-image/balanced/response/0AoDd-zsT-yCp6clFSBJeg
-// https://ideogram.ai/assets/progressive-image/balanced/response/fclgnXKRSo2lj_G9F2IUZQ
-// https://ideogram.ai/assets/progressive-image/balanced/response/zvf-giD5QKis955KA__q6g
-// https://ideogram.ai/assets/progressive-image/balanced/response/rXUv9c6gTgWqdctcA_yyog
-
-// cover image
-// https://ideogram.ai/assets/progressive-image/balanced/response/G5wFGOj5TDuSgR82IwlHhA
 
 
 
