@@ -28,7 +28,7 @@ export default function Library({
             <Text style={styles.headerText}>Library</Text>
             <SplitViewWallpapers
               wallpapers={wallpapers}
-              setselectedwallpapers={setSelectedWallpaper} // Correctly passing selected state
+              setselectedwallpapers={setSelectedWallpaper}
             />
           </View>
         )}
@@ -51,12 +51,13 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     padding: 16,
-    backgroundColor: "#fff",
+    backgroundColor: "#000000", // Dark background
   },
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
     textAlign: "center",
+    color: "#EAEAEA", // Light text for dark mode
   },
 });

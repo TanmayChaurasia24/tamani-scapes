@@ -1,8 +1,7 @@
 import React, { useCallback, useRef } from "react";
-import { View, StyleSheet, Image, Button, useColorScheme, TouchableOpacity, Text } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity, Text, useColorScheme } from "react-native";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { Ionicons } from "@expo/vector-icons";
-import { Colors } from "@/constants/Colors";
 
 type TypeUseWallpaper = {
   url: string;
@@ -15,24 +14,20 @@ export const DownloadPicture = ({
   onClose: () => void;
   wallpaper: TypeUseWallpaper;
 }) => {
-  // ref
   const bottomSheetRef = useRef<BottomSheet>(null);
   const theme = useColorScheme() ?? "light";
 
-  // callbacks
   const handleSheetChanges = useCallback((index: number) => {
     console.log("BottomSheet index:", index);
     if (index === -1) {
-      onClose(); // Call onClose when bottom sheet is dismissed
+      onClose();
     }
   }, [onClose]);
 
   const handleDownload = () => {
     console.log("Downloading:", wallpaper.url);
-    // Add actual download logic here
   };
 
-  // renders
   return (
     <BottomSheet
       ref={bottomSheetRef}
@@ -40,24 +35,27 @@ export const DownloadPicture = ({
       snapPoints={["90%"]}
       enablePanDownToClose={true}
       handleIndicatorStyle={{ display: "none" }}
-      handleStyle={{ display: "none" }}
+      handleStyle={{display: "none"}}
     >
       <BottomSheetView style={styles.contentContainer}>
+        {/* Topbar */}
         <View style={styles.topbar}>
-          <TouchableOpacity onPress={onClose}>
-            <Ionicons name={"close"} size={28} color={"white"} />
+          <TouchableOpacity onPress={onClose} style={styles.iconButton}>
+            <Ionicons name={"close"} size={28} color={"#FFF"} />
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Ionicons name={"heart"} size={28} color={"white"} />
+          <TouchableOpacity style={styles.iconButton}>
+            <Ionicons name={"heart"} size={28} color={"#FFF"} />
           </TouchableOpacity>
         </View>
 
-        {/* Image */}
-        <Image style={styles.image} source={{ uri: wallpaper.url }} />
+        {/* Image Display */}
+        <View style={styles.imageContainer}>
+          <Image style={styles.image} source={{ uri: wallpaper.url }} />
+        </View>
 
         {/* Download Button */}
         <TouchableOpacity style={styles.downloadButton} onPress={handleDownload}>
-          <Ionicons name={"share"} size={18} color={"white"} style={{paddingRight:4}} />
+          <Ionicons name={"cloud-download"} size={22} color={"white"} style={{ paddingRight: 8 }} />
           <Text style={styles.buttonText}>Download</Text>
         </TouchableOpacity>
       </BottomSheetView>
@@ -68,47 +66,67 @@ export const DownloadPicture = ({
 const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
+    backgroundColor: "#0C0C0C", // Semi-transparent dark mode
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    paddingHorizontal: 20,
+    paddingTop: 30,
   },
-  image: {
-    width: "100%",
-    height: "70%",
-    borderRadius: 10,
-    alignSelf: "center",
+  handle: {
+    backgroundColor: "transparent",
+    alignItems: "center",
+    paddingVertical: 5,
   },
   topbar: {
-    position: "absolute",
-    top: 15,
-    left: 15,
-    right: 15,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    position: "absolute",
+    top: 15,
+    left: 20,
+    right: 20,
     zIndex: 10,
   },
-  downloadButton: {
-    marginTop: 20,
-    width: "60%",
-    alignSelf: "center",
-    backgroundColor: "black", // iOS-style blue button
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 15, // Smooth rounded corners
-    elevation: 10, // Android shadow
+  iconButton: {
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    padding: 10,
+    borderRadius: 50,
+  },
+  imageContainer: {
+    width: "100%",
+    height: "65%",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 50,
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 15,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.3,
-    shadowRadius: 5,
-    display: "flex",
+    shadowRadius: 10,
+  },
+  downloadButton: {
+    marginTop: 25,
+    width: "80%",
+    alignSelf: "center",
+    backgroundColor: "#FF6000",
+    paddingVertical: 14,
+    borderRadius: 25,
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    elevation: 5,
+    shadowColor: "#FF6000",
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
   },
   buttonText: {
     color: "white",
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
+    fontWeight: "600",
   },
 });

@@ -1,5 +1,5 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import Library from "../library"; // Ensure proper casing
+import Library from "../library"; 
 import Liked from "../liked";
 import Suggested from "../suggested";
 import { useState } from "react";
@@ -12,24 +12,27 @@ export default function ForYou() {
     useState<null | typeUseWallpaper>(null);
 
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: "#212121", 
+        },
+        tabBarIndicatorStyle: { backgroundColor: "#FF6000" },
+        tabBarActiveTintColor: "#FFFFFF",
+        tabBarInactiveTintColor: "#A0A0A0",
+      }}
+    >
       <Tab.Screen
         name="Library"
-        component={() => (
-          <Library setselectedwallpapers={setSelectedWallpapers} />
-        )}
+        children={() => <Library setselectedwallpapers={setSelectedWallpapers} />}
       />
       <Tab.Screen
         name="Liked"
-        component={() => (
-          <Liked setselectedwallpapers={setSelectedWallpapers} />
-        )}
+        children={() => <Liked setselectedwallpapers={setSelectedWallpapers} />}
       />
       <Tab.Screen
         name="Suggested"
-        component={() => (
-          <Suggested setselectedwallpapers={setSelectedWallpapers} />
-        )}
+        children={() => <Suggested setselectedwallpapers={setSelectedWallpapers} />}
       />
     </Tab.Navigator>
   );

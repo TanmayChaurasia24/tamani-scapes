@@ -25,7 +25,7 @@ import {
           data={[{ key: "content" }]}
           renderItem={() => (
             <View style={{ flex: 1 }}>
-              <Text style={styles.headerText}>Library</Text>
+              <Text style={styles.headerText}>Suggested</Text>
               <SplitViewWallpapers
                 wallpapers={wallpapers}
                 setselectedwallpapers={setSelectedWallpaper} // Correctly passing selected state
@@ -51,13 +51,14 @@ import {
     safeArea: {
       flex: 1,
       padding: 16,
-      backgroundColor: "#fff",
+      backgroundColor: "#000000",
     },
     headerText: {
       fontSize: 20,
       fontWeight: "bold",
       marginBottom: 10,
       textAlign: "center",
+      color: "#EAEAEA"
     },
   });
   

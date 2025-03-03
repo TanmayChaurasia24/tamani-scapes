@@ -51,13 +51,14 @@ import {
     safeArea: {
       flex: 1,
       padding: 16,
-      backgroundColor: "#fff",
+      backgroundColor: "#000000",
     },
     headerText: {
       fontSize: 20,
       fontWeight: "bold",
       marginBottom: 10,
       textAlign: "center",
+      color: "#EAEAEA"
     },
   });
   
