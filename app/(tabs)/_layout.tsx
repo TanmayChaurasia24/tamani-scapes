@@ -43,6 +43,15 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="register"
+        options={{
+          title: "Register",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="address-book" color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }
